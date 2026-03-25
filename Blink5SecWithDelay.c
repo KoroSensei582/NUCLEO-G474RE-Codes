@@ -24,13 +24,20 @@
         HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
     }
 
-    /* 
+   /* 
    White right turn sig
  
    Green left turn sig
  
-   A0 pa0 GPIO INPUT
-   A1 pa1 GPIO INPUT
+   A0 pa0 GPIO EXIT
+   A1 pa1 GPIO EXIT
+   
+   ensure GPIO mode is set to External Interrupt Mode with Rising edge trigger detection and no pull-up or pull-down
+
+   Go to NVIC config and enable 
+   EXTI line0 interrupt	true	
+   EXTI line1 interrupt	true
+   set premption priority and subpriority to 0
 A2 pa4 white wire GPIO OUTPUT
 A3 pb0 green wire GPIO OUTPUT
     */
