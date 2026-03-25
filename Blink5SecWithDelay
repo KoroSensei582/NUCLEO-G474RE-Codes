@@ -1,0 +1,37 @@
+// Check if button on PA0 is pressed
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_SET)
+    {
+        // Blink PA4 for 5 seconds (10 x 500ms = 5s)
+        for (int i = 0; i < 10; i++)
+        {
+            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+            HAL_Delay(500);
+        }
+        // Make sure LED is off after blinking
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+    }
+
+      // Check if button on PA1 is pressed
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_SET)
+    {
+        // Blink PA4 for 5 seconds (10 x 500ms = 5s)
+        for (int i = 0; i < 10; i++)
+        {
+            HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+            HAL_Delay(500);
+        }
+        // Make sure LED is off after blinking
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+    }
+
+    /* 
+   White right turn sig
+ 
+   Green left turn sig
+ 
+   A0 pa0 GPIO INPUT
+   A1 pa1 GPIO INPUT
+A2 pa4 white wire GPIO OUTPUT
+A3 pb0 green wire GPIO OUTPUT
+    */
+// WORKS WITH LED TESTBOARD 1
